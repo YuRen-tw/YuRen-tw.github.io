@@ -145,7 +145,6 @@ main {
   max-width: 100vw;
   margin: 16px auto;
   line-height: 1.8rem;
-  letter-spacing: .1em;
   word-break: break-word;
 }
 
@@ -157,7 +156,7 @@ main > h1, article {
   background-color: white;
   box-shadow: 5px 5px var(--color-main-grey);
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   main > h1, article {
     padding-right: 1.1rem;
     padding-left: 1.1rem;
@@ -195,7 +194,7 @@ article .full-width {
   margin: 0.9rem -3.3rem;
   padding: 0.9rem 3.3rem;
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   article .full-width {
     margin: 0.9rem -1.1rem;
     padding: 0.9rem 1.1rem;
@@ -236,14 +235,19 @@ ul a:hover {
   color: var(--color-main-light);
 }
 
-ul.flex-ul {
-  display: flex;
+
+ul.grid-ul {
   padding: 0;
   list-style: none;
+  display: grid;
+  row-gap: .9rem;
+  column-gap: .5rem;
 }
-ul.flex-ul li {
-  flex: 1;
-  min-height: 2rem;
+ul.grid-ul.-c2 { grid-template-columns: repeat(2, 1fr); }
+ul.grid-ul.-c4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 700px) {
+    ul.grid-ul.-c2 { grid-template-columns: repeat(1, 1fr); }
+    ul.grid-ul.-c4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 ul.img-ul {
@@ -283,31 +287,16 @@ ul.img-ul .li-img .text-logo {
 
 i.icon, i.color-box {
   display: inline-block;
-  width: 1.8em;
-  height: 1.8em;
-  margin-right: 0.5em;
+  margin-right: 0.4em;
   vertical-align: middle;
 }
 i.icon img {
-  width: 1.8em;
   height: 1.8em;
 }
 i.color-box {
+  width: 1.8em;
+  height: 1.8em;
   background-color: CurrentColor;
-}
-
-ul.img-wall {
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: .5rem;
-  column-gap: .5rem;
-}
-@media (max-width: 500px) {
-  ul.img-wall {
-    grid-template-columns: 1fr;
-  }
 }
 
 .codepen {
