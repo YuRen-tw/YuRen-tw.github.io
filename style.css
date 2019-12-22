@@ -129,7 +129,7 @@ ul.nav li a.-now-at {
 }
 ul.nav li a.-coming-soon {
   color: var(--color-text-white-disable);
-  cursor: default;
+  pointer-events: none;
 }
 
 footer {
