@@ -1,7 +1,6 @@
 html, body { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }
 
-
 :root {
   --color-main: #fdc565;
   --color-main-light: #f6b763;
@@ -21,7 +20,7 @@ body {
   background-color: var(--color-bg-white);
 }
 
-@keyframes Rotate {
+@keyframes full-rotation {
     0% { transform: rotate(  0deg); }
   100% { transform: rotate(360deg); }
 }
@@ -30,26 +29,20 @@ header {
   position: sticky;
   top: -70vh;
   z-index: 99;
-  background-color: var(--color-main-light);
+  background-color: var(--color-main);
 }
 header .page-header {
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 70vh;
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 300;
-  color: white;
   overflow: hidden; 
 }
 header .page-header .logo {
-  display: flex;
-  margin: 0;
   max-width: 70%;
   max-height: 70%;
+  font-size: 0;
   z-index: 3;
 }
 header .page-header .logo img {
@@ -61,17 +54,17 @@ header .page-header .ring {
   min-width: 300px;
   min-height: 300px;
   position: absolute;
-  border-width: 1em;
+  border-width: 3rem;
   border-style: solid;
   border-color: transparent;
   border-radius: 50%;
   z-index: 1;
-  animation: Rotate linear infinite;
+  animation: full-rotation linear infinite;
 }
 header .page-header .ring:nth-of-type(1) {
   width: 30vw;  height: 30vw;
   animation-duration: 53s;
-  border-top-color: var(--color-main);
+  border-top-color: var(--color-main-light);
   border-bottom-color: var(--color-main-dark);
 }
 header .page-header .ring:nth-of-type(2) {
@@ -84,13 +77,13 @@ header .page-header .ring:nth-of-type(3) {
   width: 60vw;  height: 60vw;
   animation-duration: 41s;
   animation-direction: reverse;
-  border-top-color: var(--color-main);
+  border-top-color: var(--color-main-light);
   border-bottom-color: var(--color-main-dark);
 }
 header .page-header .ring:nth-of-type(4) {
   width: 70vw;  height: 70vw;
   animation-duration: 57s;
-  border-right-color: var(--color-main);
+  border-right-color: var(--color-main-light);
   border-left-color: var(--color-main-grey);
 }
 header .page-header .ring:nth-of-type(5) {
@@ -134,7 +127,7 @@ nav ul li a:hover {
   opacity: .8;
 }
 nav ul li a.-now-at {
-  background-color: var(--color-main-light);
+  background-color: var(--color-main);
   color: var(--color-main-dark);
   box-shadow: inset 0 -3px 0 0 CurrentColor;
 }
@@ -144,6 +137,7 @@ nav ul li a.-coming-soon {
 }
 
 footer {
+  margin-top: 0.9rem;
   padding: 1rem 0;
   text-align: center;
   background-color: var(--color-main-dark);
@@ -154,7 +148,7 @@ main {
   position: relative;
   width: 60.5rem;
   max-width: 100vw;
-  margin: 16px auto;
+  margin: 0.9rem auto;
   line-height: 1.8rem;
   word-break: break-word;
 }
@@ -162,10 +156,10 @@ main {
 main > h1, article {
   position: relative;
   width: 100%;
-  margin: 16px 0;
-  padding: 0.2rem 3.3rem;
+  margin: 0.9rem 0;
+  padding: 1.8rem 3.6rem;
   background-color: white;
-  box-shadow: 5px 5px var(--color-main-grey);
+  filter: drop-shadow(5px 5px var(--color-main-grey));
 }
 @media (max-width: 700px) {
   main > h1, article {
@@ -180,6 +174,16 @@ main > h1 {
   font-size: 2.5rem;
   line-height: 3.6rem;
   color: var(--color-main-grey);
+}
+main > h1::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 3.6rem;
+  height: 3.6rem;
+  left: -1.8rem;
+  border-radius: 50%;
+  background-color: var(--color-main-light);
 }
 
 article p,
@@ -196,14 +200,14 @@ article hr {
   margin-bottom: 0.9rem;
 }
 article > :first-child {
-  margin-top: 1.8rem;
+  margin-top: 0rem;
 }
 article > :last-child {
-  margin-bottom: 1.8rem;
+  margin-bottom: 0rem;
 }
 article .full-width {
-  margin: 0.9rem -3.3rem;
-  padding: 0.9rem 3.3rem;
+  margin: 0.9rem -3.6rem;
+  padding: 0.9rem 3.6rem;
 }
 @media (max-width: 700px) {
   article .full-width {
@@ -341,6 +345,7 @@ i.icon, i.color-box {
   display: inline-block;
   margin-right: 0.4em;
   vertical-align: middle;
+  line-height: 0;
 }
 i.icon img {
   height: 1.8em;
