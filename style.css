@@ -186,18 +186,28 @@ main > h1::before {
   background-color: var(--color-main-light);
 }
 
-article p,
-article ul {
-  margin: 0;
-}
-article > h2 {
+article h2 {
   margin-top: 1.8rem;
   margin-bottom: 0.9rem;
+  font-size: 2rem;
+  line-height: 2.7rem;
+  color: var(--color-main-grey);
+}
+article h3 {
+  margin-top: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  color: var(--color-main-grey);
 }
 article section,
 article hr {
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
+}
+article p,
+article ul {
+  margin: 0;
 }
 article > :first-child {
   margin-top: 0rem;
@@ -216,16 +226,6 @@ article .full-width {
   }
 }
 
-article > h2 {
-  font-size: 2rem;
-  line-height: 2.7rem;
-  color: var(--color-main-grey);
-}
-article section > h3 {
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  color: var(--color-main-grey);
-}
 h1 small, h2 small, h3 small {
   padding-left: .5em;
   font-size: 75%;
@@ -240,7 +240,7 @@ article hr.big::before {
   content: '＊　＊　＊　＊　＊';
 }
 article p {
-  text-indent: 2.2em;
+  text-indent: 2ic;
 }
 article i {
   font-style: normal;
